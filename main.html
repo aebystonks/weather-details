@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="main.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <form class="search">
+            <input type="text" id="search-input" placeholder="city" maxlength="30">
+            <button type="submit" id="search-btn">
+                <img src="/img/icons8-search-30.png" alt="search">
+            </button>
+        </form>
+        <section class="forecast">
+            <section class="weather">
+                <section class="current-location">
+                    <span id="city">-</span>
+                    <button id="like">
+                        <img src="/img/favourite-48.png" alt="like">
+                    </button>
+                </section>
+                <span id="main-temperature">0°</span>
+                <img src="#" alt="weather" class="weather-img">
+                <section class="info">
+                    <div class="feels_like">
+                        <span>Feels like: </span><span id="feels">-</span>
+                    </div>
+                    <div class="sunrise">
+                        <span>Sunrise: </span><span id="sunrise">00:00</span>
+                    </div>
+                    <div class="sunset">
+                        <span>Sunset: </span><span id="sunset">00:00</span>
+                    </div>
+                </section>
+                <section class="hourly">
+                    <div class="hourly-item">
+                        <span class="time">00:00</span>
+                        <div class="hourly-weather-info">
+                            <div class="temperature-info">
+                                <span class="temperature">Temperature: 0</span>
+                                <span class="feels-like">Feels like: 0</span>
+                            </div>
+                            <img src="#" alt="weather" class="hourly-weather-img">
+                        </div>
+                    </div>
+                    <div class="hourly-item">
+                        <span class="time">00:00</span>
+                        <div class="hourly-weather-info">
+                            <div class="temperature-info">
+                                <span class="temperature">Temperature: 0</span>
+                                <span class="feels-like">Feels like: 0</span>
+                            </div>
+                            <img src="#" alt="weather" class="hourly-weather-img">
+                        </div>
+                    </div>
+                    <div class="hourly-item no-border">
+                        <span class="time">00:00</span>
+                        <div class="hourly-weather-info">
+                            <div class="temperature-info">
+                                <span class="temperature">Temperature: 0</span>
+                                <span class="feels-like">Feels like: 0</span>
+                            </div>
+                            <img src="#" alt="weather" class="hourly-weather-img">
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section class="locations">
+                <h3 class="locations-title">Added Locations:</h3>
+                <ul class="locations-list"></ul>
+            </section>
+        </section>
+    </main>
+</body>
+
+</html>
