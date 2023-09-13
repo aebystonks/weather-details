@@ -6,12 +6,32 @@ const weatherImg = document.querySelector('.weather-img')
 const feelsLike = document.querySelector('#feels')
 const sunriseInfo = document.querySelector('#sunrise')
 const sunsetInfo = document.querySelector('#sunset')
+const time = document.querySelectorAll('.time')
 
-function getCity(cityName) {
+for (let i = 0; i < time.length; i++) {
+	console.log(time[i])
+}
+
+async function getCity(cityName) {
 	const serverUrl = 'http://api.openweathermap.org/data/2.5/weather'
 	const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f'
-	const url = `${serverUrl}?q=${cityName}&appid=${apiKey}&units=metric`
-	return fetch(url).then(reponse => reponse.json())
+	const url = await `${serverUrl}?q=${cityName}&appid=${apiKey}&units=metric`
+	const response = await fetch(url)
+	const data = await response.json()
+	return data
+}
+
+async function getForecast(cityName) {
+	try {
+		const forecast = 'https://api.openweathermap.org/data/2.5/forecast'
+		const apiKey = '1fc1c3c4f7ab985357be46392f09aafe'
+		const url = `${forecast}?q=${cityName}&appid=${apiKey}&units=metric`
+		const forecastResponse = await fetch(url)
+		const forecastData = await forecastResponse.json()
+		return forecastData
+	} catch {
+		throw new Error('404: Not Found!')
+	}
 }
 
 searchForm.addEventListener('submit', event => {
@@ -23,11 +43,18 @@ searchForm.addEventListener('submit', event => {
 			response.main.temp,
 			response.weather[0].icon,
 			response.main.feels_like,
-			response.sys.sunrise, //вот эта хуета, это из инфы response etc. Оттуда получил чет такое 1694468681
+			response.sys.sunrise,
 			response.sys.sunset
 		)
 		console.log(response)
 	})
+	getForecast(input.value)
+		.then(response => {
+			console.log(response)
+		})
+		.catch(error => {
+			console.log(error)
+		})
 })
 
 function splitFunction(city, temp, icon, feels, sunriseObj, sunsetObj) {
