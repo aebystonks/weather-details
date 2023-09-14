@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather-app</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="/img/favourite.png">
     <script type="module" src="main.js" defer></script>
 </head>
 
@@ -22,7 +23,7 @@
                 <section class="current-location">
                     <span id="city">-</span>
                     <button id="like">
-                        <img src="/img/favourite-48.png" alt="like">
+                        <img class='favourite' src="/img/favourite-48.png" alt="like">
                     </button>
                 </section>
                 <span id="main-temperature">0°</span>
@@ -73,7 +74,9 @@
             </section>
             <section class="locations">
                 <h3 class="locations-title">Added Locations:</h3>
-                <ul class="locations-list"></ul>
+                <ul class="locations-list">
+                    <li class='location'>lol</li>
+                </ul>
             </section>
         </section>
     </main>
